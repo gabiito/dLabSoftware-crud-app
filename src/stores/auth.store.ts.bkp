@@ -1,0 +1,33 @@
+import { defineStore } from 'pinia';
+import { api } from 'src/boot/axios';
+
+export const useAuthStore = defineStore('auth', {
+  state: () => ({
+    user: {
+      accesToken: '',
+      refreshToken: '',
+      email: '',
+    },
+  }),
+  getters: {
+    isLoggedIn: (state) => !!state.user.accesToken,
+  },
+  actions: {
+    async login(email: string, password: string) {
+      this.user = {
+        accesToken: 'isdfyuhgujkbnsjdfgbhj1b234jhbsdjfg',
+        refreshToken: 'isdfyuhgujkbnsjdfgbhj1b234jhbsdjfg',
+        email: 'gabozerbino@gmail.com',
+      };
+    },
+    async logout() {
+      console.log('logout');
+    },
+    async register(email: string, password: string) {
+      console.log('register');
+    },
+    async fetchUser() {
+      console.log('fetchUser');
+    },
+  },
+});
